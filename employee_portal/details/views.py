@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from django.template import loader
 from django.http import HttpResponse
+from django.template import loader
 
 # Create your views here.
 
@@ -34,15 +34,39 @@ employees = [
         'name': 'Kiran',
         'department': 'IT',
         'designation': 'Django Developer'
+    },
+    {
+        'id': 106,
+        'name': 'Tushar',
+        'department': 'IT',
+        'designation': 'Python Developer'
     }
 ]
 
+
 def home(request):
-    template = loader.get_template('home.html')
-    return HttpResponse(template.render())
+    return render(request, 'home.html')
+
+
 def list(request):
-    template = loader.get_template('employee_list.html')
-    return HttpResponse(template.render())
+    context = {
+        'employees': employees
+    }
+    return render(request, 'employee_list.html', context)
+
+
+def employee_detail(request, id):
+    employee = next(
+        (employee for employee in employees if employee['id'] == id),
+        None
+    )
+    context = {
+        'employee': employee,
+        'id': id
+    }
+    return render(request, 'employee_detail.html', context)
+
+
 def about(request):
     template = loader.get_template('about.html')
     return HttpResponse(template.render())

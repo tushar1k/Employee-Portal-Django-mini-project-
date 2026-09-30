@@ -1,40 +1,43 @@
-
 {% extends 'home.html' %}
+
+{% block title %}Employee List{% endblock %}
 
 {% block content %}
 
-<h2>Employee</h2>
+    <h2>Employee Directory</h2>
 
-{% for employee in employees %}
-
-<p>
     <table>
-        <tr>
-            <td><strong>ID</strong></td>
-            <td><strong>Name</strong></td>
-            <td><strong>Department</strong></td>
-            <td><strong>Designation</strong></td>
-        </tr>
-        <tr>
-            <td>2387</td>
-            <td>employee1</td>
-            <td>Information Technologie</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>6515</td> <td>employee2</td> <td>Human Resource</td> <td></td>
-        </tr>
-        <tr>
-            <td>7895</td> <td>employee3</td> <td>Information Technologie</td> <td></td> 
-        </tr>
-        <tr>
-            <td>9161</td> <td>employee4</td> <td></td> <td></td>
-        </tr>
-        <tr>
-            <td>2518</td> <td>employee5</td> <td></td> <td></td>
-        </tr>
-    </table>
-</p>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Designation</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
 
-{% endfor %}
+            {% for emp in employees %}
+            <tr>
+                <td>{{ emp.id }}</td>
+                <td>{{ emp.name }}</td>
+                <td>{{ emp.department }}</td>
+                <td>{{ emp.designation }}</td>
+                <td>
+                    <a href="{% url 'employee_detail' emp.id %}">
+                        View Details
+                    </a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">No employees found.</td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+
 {% endblock %}

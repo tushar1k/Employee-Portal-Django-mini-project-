@@ -1,0 +1,25 @@
+{% extends 'home.html' %}
+
+{% block title %}Employee Details{% endblock %}
+
+{% block content %}
+
+    {% if employee %}
+        <h2>Employee Details</h2>
+
+        <div class="class">
+            <p><strong>Employee ID:</strong> {{ employee.id }}</p>
+            <p><strong>Name:</strong> {{ employee.name }}</p>
+            <p><strong>Department:</strong> {{ employee.department }}</p>
+            <p><strong>Designation:</strong> {{ employee.designation }}</p>
+        </div>
+
+    {% else %}
+        <h2>Employee Not Found</h2>
+        <p>
+            No employee found with ID:
+            <strong>{{ id }}</strong>.
+        </p>
+    {% endif %}
+
+{% endblock %}
