@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home page</title>
+        <style>
+            
+          .heading{
+            font-size: 2em;
+            font-weight: bold;
+            display: flex;
+            
+          }
+        nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 0.5em;
+}
+
+.links {
+    display: flex;
+    gap: 30px;
+}
+            .emp{
+                color: black;
+                text-decoration: none;
+                margin: 10px;
+            }
+            .about{
+                color: black;
+                text-decoration: none;
+                margin: 10px;
+            }
+
+
+        </style>
+    </head>
+   
+    <body>
+        
+        <nav >
+       <div class="heading"> <a
+        href="http://127.0.0.1:8000" 
+        >Welcome to Employee Portal</a></div>
+       <div class="links">
+          <p>
+            <a href="http://127.0.0.1:8000/employees/"
+                class="emp"
+            >
+                Employee List
+            </a></p>
+        <p>
+            <a href="http://127.0.0.1:8000/about/"
+                class="about"
+        >
+            About
+        </a></p>
+      </div>
+   </nav>
+   <hr>
+        {% block content %}
+        
+        {% endblock%}
+    </body>
+</html>

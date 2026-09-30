@@ -1,0 +1,40 @@
+
+{% extends 'home.html' %}
+
+{% block content %}
+
+<h2>Employee</h2>
+
+{% for employee in employees %}
+
+<p>
+    <table>
+        <tr>
+            <td><strong>ID</strong></td>
+            <td><strong>Name</strong></td>
+            <td><strong>Department</strong></td>
+            <td><strong>Designation</strong></td>
+        </tr>
+        <tr>
+            <td>2387</td>
+            <td>employee1</td>
+            <td>Information Technologie</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>6515</td> <td>employee2</td> <td>Human Resource</td> <td></td>
+        </tr>
+        <tr>
+            <td>7895</td> <td>employee3</td> <td>Information Technologie</td> <td></td> 
+        </tr>
+        <tr>
+            <td>9161</td> <td>employee4</td> <td></td> <td></td>
+        </tr>
+        <tr>
+            <td>2518</td> <td>employee5</td> <td></td> <td></td>
+        </tr>
+    </table>
+</p>
+
+{% endfor %}
+{% endblock %}
